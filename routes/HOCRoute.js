@@ -3,6 +3,7 @@ const router = express.Router();
 
 const HOCModel = require('../models/HOCModel');
 
+// submit new HOC
 router.post('/newHOC', async(req,res) =>{
     let createdDate = new Date();
     const data = new HOCModel ({
@@ -25,6 +26,7 @@ router.post('/newHOC', async(req,res) =>{
     }
 })
 
+// delete a HOC by id
 router.get('/deleteHOC/:id', async(req,res) =>{
     try{
         const id = req.params.id;
@@ -36,5 +38,16 @@ router.get('/deleteHOC/:id', async(req,res) =>{
     }
 })
 
+// get all HOC that have same job type
+router.get('/getHOCbyJob/', async(req, res) =>{
+    try{
+        const jobType = req.query.job;
+        const result = await HOCModel.find({ jobType: jobType }).exec();
+        res.send(result);
+    }
+    catch(error){
+        res.status(400).json({message: error.message})
+    }
+})
 
 module.exports = router;

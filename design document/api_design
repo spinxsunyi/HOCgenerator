@@ -21,7 +21,6 @@ Database Design:
 -- description, (string: describe the finding)
 -- action (string: describe the action item to resolve the finding)
 -- hazard type (as per HOC aslo option)
--- activity location (as per HOC aslo option)
 -- job jobType mode (arr: standby, rigup, perfo, logging)
 -- contributorName (string: name of HOC entry creator)
 -- dateCreated(datetime)
