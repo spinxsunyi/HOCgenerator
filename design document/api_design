@@ -1,0 +1,63 @@
+Practice 001
+
+Make an HSE KPI generator app
+Feature:
+1. Generate HOC_ASLO styles (V1), generate Excel file HOC (V2)
+2. Generate Crew Training KPI (V2)
+
+-----
+1. Generate HOC_ASLO styles
+1.1 Input personnel names, event location and event date
+1.2. Choose Job mode: Stanby mode, Rigup mode, Perfo Mode.
+1.3. Program will assign HOC each personnel that suitable with the mode.
+Program have database of HOC data with its Job type category.
+
+1.4 Generate excel file, with correct file names, and correct format for ASLO HOC style.
+1.5 Interface with the app via telegram
+
+Database Design:
+1. HOC_Content_Schema: 
+-- id_HOC, (id of HOC)
+-- description, (string: describe the finding)
+-- action (string: describe the action item to resolve the finding)
+-- hazard type (as per HOC aslo option)
+-- activity location (as per HOC aslo option)
+-- job jobType mode (arr: standby, rigup, perfo, logging)
+-- contributorName (string: name of HOC entry creator)
+-- dateCreated(datetime)
+-- dateModified(datetime)
+
+2. JobType_Schema
+-- id_jobType
+-- jobType_name
+-- content [array of id_HOC]
+-- dateCreated(datetime)
+-- dateModified(datetime)
+
+
+____
+Api Design
+
+/newHOC
+-- input new HOC entry
+/generateHOC
+-- input crew name, date, and jobType
+-- count crew qty, select random HOC based on jobType 
+-- assign selected HOC to each crew, set as array / object
+-- generate filename.
+-- send data to /get-excel
+
+/getExcel
+-- input HOC object
+-- open HOC excel template
+-- assign each object to each cell in excel
+-- save as new excel file and send for download
+
+
+____________
+
+folder
+- template excel
+- generated excel
+-- id
+

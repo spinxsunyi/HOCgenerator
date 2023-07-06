@@ -1,0 +1,48 @@
+
+_______
+
+HOC Generator
+________
+
+[form requestHOCreport]
+Input crew name
+-- leave crew name empty if no personnel
+*[fs 1]
+[fs 2]
+*[crew 1]
+[crew 2]
+[crew 3]
+[crew 4]
+[crew 5]
+[crew 6]
+
+Date of report:
+[reportDate]
+
+Choose job type:
+[jobType]
+we will generate HOC that suitable with your job. Is it stanby? is it job?
+if stanby, we will only put entry that done in barge, not in platform.
+
+[[[ submit generate ]]]
+
+
+
+Dear Sir,
+
+Kindly generate HOC with following details:
+
+Crew:
+- 
+-
+-
+-
+-
+-
+
+Job type:
+-
+
+date:
+-
+
