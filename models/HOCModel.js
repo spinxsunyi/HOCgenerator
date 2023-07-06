@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const dataSchema = new mongoose.Schema({
     creator:{
         required: true,
@@ -24,6 +25,10 @@ const dataSchema = new mongoose.Schema({
     DetailActivity:{
         required: true,
         type: String
+    },
+    jobType:{
+        required: true,
+        type: [String]
     },
     lastUpdated:{
         type: Date,

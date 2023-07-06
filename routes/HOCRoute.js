@@ -12,7 +12,8 @@ router.post('/newHOC', async(req,res) =>{
         HOCType: req.body.HOCType,
         CSLR: req.body.CSLR,
         DetailActivity: req.body.DetailActivity,
-        createdDate: createdDate
+        createdDate: createdDate,
+        jobType: req.body.jobType
     })
     try {
         const dataToSave = await data.save();
@@ -23,5 +24,17 @@ router.post('/newHOC', async(req,res) =>{
         res.status(400).json({message: error.message})
     }
 })
+
+router.get('/deleteHOC/:id', async(req,res) =>{
+    try{
+        const id = req.params.id;
+        const result = await HOCModel.findByIdAndRemove(id);
+        res.send('deleted');
+    }
+    catch (error){
+        res.status(400).json({message: error.message})
+    }
+})
+
 
 module.exports = router;
