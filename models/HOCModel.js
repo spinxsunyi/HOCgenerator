@@ -14,7 +14,8 @@ const dataSchema = new mongoose.Schema({
     },
     HOCType:{
         required: true,
-        type: String
+        type: String,
+        enum: { values: ['Safe Card', 'Unsafe Condition', 'Unsafe Act', 'SQ'], message: '{VALUE} is not supported. Only accept Safe Card, Unsafe Condition, Unsafe Act.'}
     },
     CSLR:{
         required: true,
