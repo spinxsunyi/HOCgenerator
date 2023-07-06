@@ -46,7 +46,6 @@ Api Design
 -- assign selected HOC to each crew, set as array / object
 -- generate filename.
 -- send data to /get-excel
-
 /getExcel
 -- input HOC object
 -- open HOC excel template
