@@ -36,6 +36,9 @@ const dataSchema = new mongoose.Schema({
     },
     createdDate:{
         type: Date
+    },
+    HOCid:{
+        type: Number
     }
 
 });
