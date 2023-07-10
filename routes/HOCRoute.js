@@ -42,8 +42,24 @@ router.get('/deleteHOC/:id', async(req,res) =>{
 router.get('/getHOCbyJob/', async(req, res) =>{
     try{
         const jobType = req.query.job;
+        // get all HOC that have same job type
         const result = await HOCModel.find({ jobType: jobType }).exec();
         res.send(result);
+    }
+    catch(error){
+        res.status(400).json({message: error.message})
+    }
+})
+
+router.get('/getRandomHOC/', async(req, res) =>{
+    try{
+        const jobType = req.query.job;
+        // get all HOC that have same job type
+        const result = await HOCModel.find({ jobType: jobType }).exec();
+
+        // select random index from array of result
+        const randomIndex = Math.floor(Math.random()*result.length);
+        res.send(result[randomIndex]);
     }
     catch(error){
         res.status(400).json({message: error.message})
